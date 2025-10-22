@@ -1,0 +1,16 @@
+# Ignore local config that may contain API keys
+config.js
+
+# Node / IDE artifacts (if any)
+node_modules/
+.DS_Store
+.vscode/
+npm-debug.log
+package-lock.json
+
+# Build outputs
+dist/
+build/
+
+# OS files
+Thumbs.db

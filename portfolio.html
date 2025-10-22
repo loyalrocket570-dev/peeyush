@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - StockWise</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-left">
+      <h1>Your Portfolio</h1>
+      <div class="sub">Manage holdings, unrealized &amp; realized P/L</div>
+    </div>
+    <div class="top-right">
+      <div class="balance">VCASH: <span class="credits-amt">-</span></div>
+      <div class="summary">Total: <span id="pf-total">-</span></div>
+      <div class="pl">P/L: <span id="pf-pl">-</span></div>
+      <button id="refreshPricesBtn" class="small">Refresh Prices</button>
+      <button id="exportTradesBtn" class="small">Export Trades</button>
+    </div>
+  </header>
+
+  <main class="content">
+    <div id="portfolioList"></div>
+    <div class="chart-container">
+      <canvas id="portfolioChart"></canvas>
+    </div>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="quiz.html">Quiz</a>
+  </nav>
+
+  <script src="script.js"></script>
+  <script src="chart.js"></script>
+  <script src="portfolio.js"></script>
+  <!-- Trade modal (hidden) -->
+  <div id="trade-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-panel">
+      <h3 id="trade-modal-title">Trade</h3>
+      <div class="modal-body">
+        <div>Symbol: <strong id="trade-symbol">-</strong></div>
+        <div style="margin-top:8px">Type: <span id="trade-type">Buy</span></div>
+        <div style="margin-top:8px">
+          <label>Quantity</label>
+          <input id="trade-qty" type="number" min="0.0001" step="0.0001" value="1" />
+        </div>
+        <div style="margin-top:8px">Price: <span id="trade-price">-</span></div>
+      </div>
+      <div class="modal-actions">
+        <button id="trade-cancel" class="small">Cancel</button>
+        <button id="trade-confirm" class="small">Confirm</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
